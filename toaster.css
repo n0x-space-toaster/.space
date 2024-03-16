@@ -1,0 +1,44 @@
+
+.link-tree,
+.beans {
+    padding: 0;
+    width: 75%;
+    margin: 0 auto;
+    border: 0px solid green;
+    display: table;
+}
+
+.link-tree a {
+    display: flex;
+    padding: 0 auto;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+@media (orientation: landscape) {
+    .link-tree a {
+        width: 70%;
+    }
+}
+
+@media (orientation: portrait) {
+    .link-tree a {
+        width: 100%;
+    }
+}
+
+.link-tree li,
+.beans li {
+    padding: 0.4em;
+    margin: 1.4em 0.4em;
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+
+.link-tree a,
+.link-tree a:hover,
+.link-tree a:visited {
+    color: inherit;
+    text-decoration: none;
+}

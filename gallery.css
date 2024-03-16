@@ -1,0 +1,113 @@
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-items: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.gallery .span2 {
+    flex-basis: 350px;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.gallery>span {
+    position: relative;
+    border: 3px solid var(--text-color);
+    z-index: 11;
+
+}
+
+.gallery img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+}
+
+#skip_animation {
+    display: none;
+}
+
+#skip_animation:target+.gallery {
+    --loader-display-override: none;
+}
+
+.gallery .loader {
+    display: var(--loader-display-override, block);
+    position: absolute;
+    background: black;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    top: 0;
+    left: 0px;
+    padding: 0;
+    margin: 0;
+    animation: modem-load linear forwards;
+}
+
+.gallery .loader.l1 {
+    animation-duration: 1.3s;
+    animation-delay: 1s;
+    animation-timing-function: steps(30);
+}
+
+.gallery .loader.l2 {
+    animation-duration: 3s;
+    animation-timing-function: steps(5);
+}
+
+.gallery .loader.l3 {
+    animation-duration: 5s;
+    animation-timing-function: steps(15);
+}
+
+.gallery .loader.l4 {
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-timing-function: steps(100);
+}
+
+.gallery .loader.l5 {
+    animation-duration: 4s;
+    animation-delay: 5s;
+    animation-timing-function: steps(100);
+}
+
+.gallery .loader.l6 {
+    animation-duration: 6s;
+    animation-delay: 6.7s;
+    animation-timing-function: steps(5);
+}
+
+@keyframes modem-load {
+    0% {
+        height: 100%;
+        top: 0%;
+    }
+
+    100% {
+        height: 0%;
+        top: 100%;
+    }
+}

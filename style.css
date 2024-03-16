@@ -1,0 +1,275 @@
+:root {
+    --shadow-color: rgb(10, 10, 8);
+    --dark-color: rgb(40, 40, 40);
+    --text-color: rgb(181, 181, 181);
+
+    --vapor-pink: rgb(246, 0, 225);
+    --vapor-cyan: rgb(47, 227, 255);
+
+    --vapor-muted-cyan: rgb(27, 109, 122);
+    --vapor-purple: rgb(174, 5, 155);
+
+    --vapor-scanline-on: rgba(0, 0, 0, 0.228);
+    --vapor-scanline-off: rgba(0, 0, 0, 0.1);
+
+    --vapor-bg-pink: var(--vapor-pink);
+    --vapor-bg-cyan: var(--vapor-cyan);
+
+    --vapor-pink: rgb(255, 154, 0);
+    --vapor-cyan: rgb(39, 167, 216);
+
+    --vapor-pink: rgb(113, 7, 175);
+    --vapor-cyan: rgb(0, 192, 73);
+}
+
+* {
+    font-family: 'FiraCode NF', 'FiraCode', 'Fira Code', monospace;
+    font-variant-numeric: slashed-zero;
+    font-variant-ligatures: none;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+    z-index: -95;
+    position: relative;
+}
+
+h2 {
+    position: relative;
+    font-size: 2em;
+    z-index: -95;
+}
+
+h1::after {
+    content: "_";
+    animation: cursor-blink 1.6s infinite steps(1);
+}
+
+#rolling-scanline {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 4px;
+    position: fixed;
+    background: var(--vapor-scanline-on);
+    top: 0;
+    left: 0;
+    animation: scanline-scan 10s linear infinite;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@keyframes scanline-scan {
+    0% {
+        top: 110%;
+    }
+
+    70% {
+        top: 110%;
+    }
+
+    100% {
+        top: -10%;
+    }
+
+}
+
+@keyframes cursor-blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+html {
+    background: var(--dark-color);
+    color: var(--text-color);
+}
+
+.vapor-box:hover {
+    border-radius: 0px;
+    background-color: rgb(23, 23, 23);
+    box-shadow: 15px 7px 0px var(--vapor-pink), -15px -7px 0px var(--vapor-cyan);
+
+}
+
+.vapor-box,
+.vapor-border {
+    box-shadow: 5px 5px 0px var(--vapor-pink), -3px -3px 0px var(--vapor-cyan);
+}
+
+.vapor-box {
+    transition: all 0.4s ease;
+    margin: auto 0;
+    display: flex;
+
+
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.2em;
+    /*fix ws collapse*/
+    vertical-align: middle;
+    text-align: center;
+    padding: 0.3em 0.5em;
+    min-height: 5cap;
+    border: 3px solid var(--text-color);
+    background: var(--dark-color);
+
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vapor-box>span {
+    align-self: stretch;
+}
+
+#bg,
+#bg-scanlines,
+#bg-crt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+#bg {
+    z-index: -100;
+    background:
+        linear-gradient(0deg, var(--vapor-bg-pink), var(--vapor-bg-cyan));
+    a-background:
+        repeating-linear-gradient(var(--vapor-cyan), var(--vapor-cyan) 20px, var(--vapor-purple) 20px, var(--vapor-purple) 25px),
+        linear-gradient(rgba(37, 37, 37, 0.053), rgba(61, 1, 134, 0.217)),
+        linear-gradient(90deg, rgba(255, 53, 198, 0.059), rgba(0, 0, 255, 0.055));
+
+    filter: brightness(0.8);
+}
+
+#bg-crt2 {
+    z-index: 80;
+    background: radial-gradient(transparent 80%, var(--vapor-scanline-on));
+}
+
+#bg-crt3 {
+    --crt-stop-transparent: 97%;
+    --crt-stop-black: 99%;
+    z-index: 110;
+
+    background: linear-gradient(0deg, transparent var(--crt-stop-transparent), black var(--crt-stop-black), black),
+        linear-gradient(90deg, transparent var(--crt-stop-transparent), black var(--crt-stop-black), black),
+        linear-gradient(180deg, transparent var(--crt-stop-transparent), black var(--crt-stop-black), black),
+        linear-gradient(-90deg, transparent var(--crt-stop-transparent), black var(--crt-stop-black), black);
+    opacity: .4;
+}
+
+#bg-crt {
+    z-index: 110;
+    box-shadow: inset 10px 10px 50px black,
+        inset -10px -10px 50px black;
+    background: radial-gradient(transparent 90%, var(--vapor-scanline-on));
+    opacity: .7;
+}
+
+#bg-scanlines {
+    z-index: 90;
+    background:
+        repeating-linear-gradient(var(--vapor-scanline-off), var(--vapor-scanline-off) 4px, var(--vapor-scanline-on) 2px, var(--vapor-scanline-on) 8px);
+
+    filter: blur(0px);
+    animation: bg-flicker 8s infinite cubic-bezier(.28,2.07,.13,-1.5);
+
+}
+
+@keyframes bg-flicker {
+    0% {
+        filter: blur(0px);
+    }
+
+    50% {
+        filter: blur(2px);
+    }
+    100% {
+        filter: blur(0px);
+    }
+}
+
+.center {
+    text-align: center;
+    padding: auto;
+    margin: auto;
+}
+
+@keyframes jump-slow {
+    0% {
+        top: 0px;
+    }
+
+    49% {
+        top: 0px;
+    }
+
+    50% {
+        top: 30px;
+    }
+
+    100% {
+        top: 30px;
+    }
+
+}
+
+.beans li {
+    margin: 30px auto;
+    position: relative;
+}
+
+.bean {
+    display: block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    animation: jump-slow 1s linear infinite;
+    pointer-events: none;
+}
+
+.beans .top,
+.beans .bottom {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.beans .bottom {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.beans li:hover .bean,
+.beans li:active .bean,
+.beans .bean:hover,
+.beans .bean:active {
+    animation: jump-slow .3s linear infinite;
+
+}
+
+@media (prefers-contrast: more) {
+
+    #bg,
+    #bg-scanlines,
+    #bg-crt,
+    #rolling-scanline {
+        display: none;
+    }
+}
