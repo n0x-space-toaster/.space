@@ -27,6 +27,8 @@
     font-variant-numeric: slashed-zero;
     font-variant-ligatures: none;
     font-weight: 700;
+    background-color: transparent;
+    background: none;
 }
 
 h1 {
@@ -89,6 +91,11 @@ h1::after {
 html {
     background: var(--dark-color);
     color: var(--text-color);
+}
+
+body {
+    z-index: -999;
+    position: relative;
 }
 
 .vapor-box:hover {
