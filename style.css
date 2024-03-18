@@ -284,4 +284,6 @@ body {
 
 .pwd {
     color: inherit;
+    text-underline-position: under;
+    text-decoration-skip-ink: none;
 }
