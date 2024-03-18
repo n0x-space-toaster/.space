@@ -194,7 +194,7 @@ body {
         repeating-linear-gradient(var(--vapor-scanline-off), var(--vapor-scanline-off) 4px, var(--vapor-scanline-on) 2px, var(--vapor-scanline-on) 8px);
 
     filter: blur(0px);
-    animation: bg-flicker 8s infinite cubic-bezier(.28,2.07,.13,-1.5);
+    animation: bg-flicker 8s infinite cubic-bezier(.28, 2.07, .13, -1.5);
 
 }
 
@@ -206,6 +206,7 @@ body {
     50% {
         filter: blur(2px);
     }
+
     100% {
         filter: blur(0px);
     }
