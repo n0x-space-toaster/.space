@@ -2,7 +2,7 @@ this is my simple website :)
 
 ![n0x' smile](smile.png)
 
-go here: [n0x.space/toaster](https://n0x.space.toaster)
+go here: [n0x.space/toaster](https://n0x.space/toaster)
 
 all images belong to me
 
