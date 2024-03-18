@@ -43,7 +43,7 @@ h2 {
     z-index: -95;
 }
 
-h1::after {
+.cursor-blink::after {
     content: "_";
     animation: cursor-blink 1.6s infinite steps(1);
 }
@@ -279,4 +279,8 @@ body {
     #rolling-scanline {
         display: none;
     }
+}
+
+.pwd {
+    color: inherit;
 }
