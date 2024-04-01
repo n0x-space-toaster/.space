@@ -1,6 +1,7 @@
 
 .link-tree,
-.beans {
+.beans,
+.box-list {
     padding: 0;
     width: 75%;
     margin: 0 auto;
@@ -28,7 +29,8 @@
 }
 
 .link-tree li,
-.beans li {
+.beans li,
+.box-list li {
     padding: 0.4em;
     margin: 1.4em 0.4em;
     list-style: none;

@@ -30,7 +30,13 @@
     background-color: transparent;
     background: none;
 }
-
+.vapor-link,
+.vapor-link:link, 
+.vapor-link:hover,
+.vapor-link:active
+{
+    color: var(--vapor-cyan)
+}
 h1 {
     font-size: 2.5em;
     z-index: -95;
@@ -97,7 +103,6 @@ body {
     z-index: -999;
     position: relative;
 }
-
 .vapor-box:hover {
     border-radius: 0px;
     background-color: rgb(23, 23, 23);
@@ -106,11 +111,13 @@ body {
 }
 
 .vapor-box,
+.vapor-box-static,
 .vapor-border {
     box-shadow: 5px 5px 0px var(--vapor-pink), -3px -3px 0px var(--vapor-cyan);
 }
 
-.vapor-box {
+.vapor-box,
+.vapor-box-static {
     transition: all 0.4s ease;
     margin: auto 0;
     display: flex;
