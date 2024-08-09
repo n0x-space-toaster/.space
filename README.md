@@ -15,3 +15,4 @@ features:
 - no third party stuff like
     - Google Fonts
     - foreign CSS
+- no AI
